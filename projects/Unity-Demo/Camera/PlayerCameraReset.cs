@@ -1,3 +1,4 @@
+using System;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -5,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerCameraReset : MonoBehaviour
 {
     private CinemachineFreeLook freeLook;
+    private Transform playerTransform;
     
     private bool isResetting;
     private float resetTimer;
@@ -12,7 +14,7 @@ public class PlayerCameraReset : MonoBehaviour
     private float startY;
     
     [Header("回正设置")]
-    [SerializeField] private float targetX = 0f;
+    private float targetX;
     [SerializeField] private float targetY = 0.5f;
     [SerializeField] private float resetSpeed = 8f;
     
@@ -21,6 +23,7 @@ public class PlayerCameraReset : MonoBehaviour
     private void Start()
     {
         freeLook = GetComponent<CinemachineFreeLook>();
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
@@ -39,6 +42,7 @@ public class PlayerCameraReset : MonoBehaviour
 
     private void StartResetCamera()
     {
+        targetX = CalculateTargetX();
         isResetting = true;
         resetTimer = 0f;
         startX = freeLook.m_XAxis.Value;
@@ -64,7 +68,7 @@ public class PlayerCameraReset : MonoBehaviour
         // 正常视角控制
         if (!isResetting)
         {
-            Vector2 lookDelta = lookAction.action.ReadValue<Vector2>();
+            var lookDelta = lookAction.action.ReadValue<Vector2>();
             freeLook.m_XAxis.m_InputAxisValue = lookDelta.x;
             freeLook.m_YAxis.m_InputAxisValue = lookDelta.y;
         }
@@ -74,5 +78,24 @@ public class PlayerCameraReset : MonoBehaviour
         {
             UpdateResetCamera();
         }
+    }
+
+    private float CalculateTargetX()
+    {
+        var playerDirection = Mathf.Atan2(playerTransform.forward.x, playerTransform.forward.z) * Mathf.Rad2Deg;
+        var playerBackDirection = playerDirection + 180f;
+    
+        // 计算当前相机位置的角度
+        var cameraOffset = freeLook.transform.position - playerTransform.position;
+        var cameraAngle = Mathf.Atan2(cameraOffset.x, cameraOffset.z) * Mathf.Rad2Deg;
+        var currentX = freeLook.m_XAxis.Value;
+    
+        // 反推 X=0 对应的角度
+        var zeroAngle = cameraAngle - currentX * 360f;
+    
+        // 计算目标
+        var targetX = (playerBackDirection - zeroAngle) / 360f;
+        
+        return Mathf.Repeat(targetX, 1f);
     }
 }
