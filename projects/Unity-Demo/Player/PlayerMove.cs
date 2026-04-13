@@ -1,15 +1,17 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMove : MonoBehaviour, IMovementProvider
+public class PlayerMove : MonoBehaviour, IMovementProvider , IDodgeProvider
 {
+    [Header("相机调用")]
+    [SerializeField] private Transform cameraTransform;
     private Animator animator;
     private CharacterController controller;
     
     private Vector2 playerInput;
     private Vector3 moveDirection;
     private Vector3 playerMovement;
-    
+
     [Header("移动速度设置")]
     private bool isSprinting;
     public float runSpeed = 3f;
@@ -38,7 +40,22 @@ public class PlayerMove : MonoBehaviour, IMovementProvider
         Move();
     }
 
-    // 攻击期间的转向：只执行一次
+    private Vector3 GetCameraInput()
+    {
+        if(cameraTransform == null) return Vector3.zero;
+        
+        var forward = cameraTransform.forward;
+        var right = cameraTransform.right;
+        forward.y = 0;
+        forward.Normalize();
+        right.y = 0;
+        right.Normalize();
+        
+        var moveDirection =  forward * playerInput.y + right * playerInput.x;
+        return moveDirection.normalized;
+    }
+
+    // 攻击期间的转向只执行一次
     private void UpdateAttackRotate()
     {
         if (CanRotate) return;
@@ -46,7 +63,7 @@ public class PlayerMove : MonoBehaviour, IMovementProvider
         if (playerInput.magnitude < 0.1f) return;
     
         // 计算目标方向
-        bufferedRotation = new Vector3(playerInput.x, 0, playerInput.y).normalized;
+        bufferedRotation = GetCameraInput();
         var targetRotation = Quaternion.LookRotation(bufferedRotation, Vector3.up);
     
         // 快速平滑转向（速度是正常的3-5倍）
@@ -67,13 +84,14 @@ public class PlayerMove : MonoBehaviour, IMovementProvider
         if (!CanRotate) return;
         if (playerInput.magnitude < 0.1f) return;
         
-        moveDirection = new Vector3(playerInput.x, 0, playerInput.y).normalized;
+        moveDirection = GetCameraInput();
         var targetRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
     }
 
     private void Move()
     {
+        if (IsDodging) return; // 闪避时不执行 Move
         if (!CanMove) return;
         if (isSprinting && playerInput.magnitude < 0.1f) isSprinting = false;
         
@@ -96,7 +114,7 @@ public class PlayerMove : MonoBehaviour, IMovementProvider
     public bool CanRotate { get; set; } = true;
     
     public bool IfMove() => playerInput.magnitude > 0.1f;
-    public Vector3 GetMoveDirection() => new Vector3(playerInput.x, 0, playerInput.y).normalized;
+    public Vector3 GetMoveDirection() => moveDirection;
     
     public float GetCurrentSpeed() => currentSpeed;
     public float GetSprintSpeed() => sprintSpeed;
@@ -105,4 +123,6 @@ public class PlayerMove : MonoBehaviour, IMovementProvider
     
     public void EnableBuffedRotate() => rotatedAttack = false;// 重置，允许下次攻击转向
     public void DisableBuffedRotate() { }
+    
+    public bool IsDodging { get; }
 }
