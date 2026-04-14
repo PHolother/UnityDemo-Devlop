@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerCameraReset : MonoBehaviour
 {
     private CinemachineFreeLook freeLook;
-    private Transform playerDirection;
+    private Transform playerTransform;
     
     private bool isResetting;
     private float resetTimer;
@@ -23,7 +23,7 @@ public class PlayerCameraReset : MonoBehaviour
     private void Start()
     {
         freeLook = GetComponent<CinemachineFreeLook>();
-        playerDirection = GameObject.Find("PlayerDirection")?.transform;
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         
     }
 
@@ -83,19 +83,22 @@ public class PlayerCameraReset : MonoBehaviour
     
     private float CalculateTargetX()
     {
-        var playerBackDirection = -this.playerDirection.forward;
+        var playerBackDirection = -playerTransform.forward;
         playerBackDirection.y = 0;
         playerBackDirection.Normalize();
-        
+    
         var cameraDirection = freeLook.transform.position - freeLook.LookAt.position;
         cameraDirection.y = 0;
         cameraDirection.Normalize();
+    
+        var deltaAngle = Vector3.SignedAngle(cameraDirection, playerBackDirection, Vector3.up);
         
-        var dealtaAngle = Vector3.SignedAngle(cameraDirection, playerBackDirection, Vector3.up);
-
-        var tempX = freeLook.m_XAxis.Value + dealtaAngle / 360f;
+        var tempAngle = freeLook.m_XAxis.Value + deltaAngle;
         
-        return Mathf.Repeat(tempX, targetX);
+        while (tempAngle > 180) tempAngle -= 360;
+        while (tempAngle < -180) tempAngle += 360;
+    
+        return tempAngle;
     }
     
 }
