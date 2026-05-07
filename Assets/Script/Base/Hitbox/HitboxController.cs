@@ -20,7 +20,7 @@ namespace Script.Base.Hitbox
         [Tooltip("命中时触发的事件 (attacker, battleAttribute, targetRoot, damage)")]
         public UnityEvent<GameObject, GameObject, GameObject, int> OnHit;
 
-        // HurtBox Layer索引
+        // Hurtbox Layer索引
         private int hurtBoxLayerIndex;
 
         // 缓存所有需要控制的Collider
@@ -35,11 +35,11 @@ namespace Script.Base.Hitbox
 
         private void Awake()
         {
-            // 获取HurtBox的Layer索引
-            hurtBoxLayerIndex = LayerMask.NameToLayer("HurtBox");
+            // 获取Hurtbox的Layer索引
+            hurtBoxLayerIndex = LayerMask.NameToLayer("Hurtbox");
             if (hurtBoxLayerIndex == -1)
             {
-                Debug.LogWarning("[HitboxController] 未找到 'HurtBox' Layer，请确保已在Tag Manager中创建该Layer！", this);
+                Debug.LogWarning("[HitboxController] 未找到 'Hurtbox' Layer，请确保已在Tag Manager中创建该Layer！", this);
             }
 
             // 如果attacker未设置，自动设为根物体
@@ -112,7 +112,7 @@ namespace Script.Base.Hitbox
             // 检查是否为空
             if (other == null) return;
 
-            // Layer过滤（仅HurtBox）
+            // Layer过滤（仅Hurtbox）
             if (other.gameObject.layer != hurtBoxLayerIndex)
             {
                 return;
@@ -168,7 +168,7 @@ namespace Script.Base.Hitbox
             {
                 currentBattleAttribute = null;
                 currentDamageProvider = null;
-                Debug.LogWarning("[HitboxController] 未在攻击者根节点下找到 'BattleAttribute' 子物体", this);
+                Debug.LogError($"[HitboxController] 未在攻击者根节点 '{attacker.name}' 下找到 'BattleAttribute' 子物体！请确保预制体结构正确：Root/BattleAttribute", this);
                 return;
             }
 
@@ -177,7 +177,7 @@ namespace Script.Base.Hitbox
 
             if (currentDamageProvider == null)
             {
-                Debug.LogWarning("[HitboxController] BattleAttribute上未找到实现IDamageProvider的组件", this);
+                Debug.LogError($"[HitboxController] BattleAttribute '{currentBattleAttribute.name}' 上未找到实现IDamageProvider的组件！请挂载CharacterCombatStats脚本。", this);
             }
         }
 

@@ -2,11 +2,11 @@ using UnityEngine;
 using Script.Base.Interface.Battle;
 
 /// <summary>
-/// 玩家战斗属性示例脚本
+/// 通用角色战斗属性脚本
 /// 实现IDamageProvider接口，提供伤害值
-/// 挂载在BattleAttribute预制体上
+/// 适用于玩家和敌人，挂载在BattleAttribute子物体上
 /// </summary>
-public class PlayerCombatStats : MonoBehaviour, IDamageProvider
+public class CombatStats : MonoBehaviour, IDamageProvider
 {
     [Header("基础属性")]
     [Tooltip("基础攻击力")]
@@ -14,6 +14,10 @@ public class PlayerCombatStats : MonoBehaviour, IDamageProvider
 
     [Tooltip("攻击力加成（可通过装备、增益等修改）")]
     public int damageBonus = 0;
+
+    [Header("角色引用")]
+    [Tooltip("角色根物体引用（可选，用于扩展功能）")]
+    public GameObject owner;
 
     /// <summary>
     /// 实现IDamageProvider接口
@@ -45,5 +49,14 @@ public class PlayerCombatStats : MonoBehaviour, IDamageProvider
     public void ClearDamageBonus()
     {
         damageBonus = 0;
+    }
+
+    private void Awake()
+    {
+        // 如果owner未设置，自动设为根物体
+        if (owner == null)
+        {
+            owner = transform.root.gameObject;
+        }
     }
 }
