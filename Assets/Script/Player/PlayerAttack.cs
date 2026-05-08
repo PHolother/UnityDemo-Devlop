@@ -65,8 +65,6 @@ public class PlayerAttack : MonoBehaviour , IAttackReset
     
     private void StartAttack()
     {
-        // TODO: 未来启用时需要取消注释
-        /*
         // 检查体力是否为0
         if (stamina != null && stamina.GetCurrentStamina() <= 0)
         {
@@ -80,7 +78,6 @@ public class PlayerAttack : MonoBehaviour , IAttackReset
             stamina.ConsumeStamina(attackStaminaCost);
             Debug.Log($"[PlayerAttack] 消耗体力: {attackStaminaCost}, 剩余: {stamina.GetCurrentStamina()}");
         }
-        */
         
         movementProvider.EnableBuffedRotate();// 允许预输入攻击转向
         animator.SetTrigger(attackedHash);
