@@ -2,7 +2,7 @@ using Script.Base.Interface.Battle;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Script.Base
+namespace Script.Base.BattleAttribute
 {
     /// <summary>
     /// 敌人血量管理脚本，实现IDamageable接口

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class NoticePlayer : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class NoticePlayer : MonoBehaviour
     private float turnTimeDuration = 0.5f;
 
     private int noticePlayerHash;
+    
+    [Header("战斗事件")]
+    [Tooltip("进入战斗时触发")]
+    private UnityEvent onBattleStart = new UnityEvent();
+    public UnityEvent OnBattleStart => onBattleStart;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -37,6 +43,10 @@ public class NoticePlayer : MonoBehaviour
         
         inBattle = true;
         animator.SetTrigger(noticePlayerHash);
+        
+        // 触发战斗开始事件
+        onBattleStart.Invoke();
+        Debug.Log("[NoticePlayer] 战斗开始事件已触发");
     }
     
     private void TurnToPlayer()

@@ -1,4 +1,5 @@
 using Script.Base.Interface;
+using Script.Base.BattleAttribute;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,6 +20,13 @@ public class PlayerAttack : MonoBehaviour , IAttackReset
     public bool attackBuffered;
     private float attackBufferedStartTime;
     
+    [Header("攻击消耗配置")]
+    [Tooltip("普通攻击消耗的体力值")]
+    [SerializeField] private int attackStaminaCost = 10;
+    
+    // 属性组件引用
+    private Stamina stamina;
+    
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -27,6 +35,18 @@ public class PlayerAttack : MonoBehaviour , IAttackReset
         turnToMoveHash = Animator.StringToHash("turnToMove");
         attackedHash = Animator.StringToHash("attacked");
         attackedToUnarmHash = Animator.StringToHash("attackedToUnarm");
+        
+        // 获取体力组件
+        stamina = GetComponentInChildren<Stamina>();
+        
+        if (stamina == null)
+        {
+            Debug.Log("[PlayerAttack] 未找到Stamina组件，攻击将不消耗体力", this);
+        }
+        else
+        {
+            Debug.Log($"[PlayerAttack] 成功获取Stamina组件，攻击消耗: {attackStaminaCost}", this);
+        }
     }
     
     void Update()
@@ -45,6 +65,23 @@ public class PlayerAttack : MonoBehaviour , IAttackReset
     
     private void StartAttack()
     {
+        // TODO: 未来启用时需要取消注释
+        /*
+        // 检查体力是否为0
+        if (stamina != null && stamina.GetCurrentStamina() <= 0)
+        {
+            Debug.Log("[PlayerAttack] 体力耗尽，无法攻击");
+            return;
+        }
+        
+        // 消耗体力
+        if (stamina != null)
+        {
+            stamina.ConsumeStamina(attackStaminaCost);
+            Debug.Log($"[PlayerAttack] 消耗体力: {attackStaminaCost}, 剩余: {stamina.GetCurrentStamina()}");
+        }
+        */
+        
         movementProvider.EnableBuffedRotate();// 允许预输入攻击转向
         animator.SetTrigger(attackedHash);
         isAttacking = true;
