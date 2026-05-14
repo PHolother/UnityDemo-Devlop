@@ -20,7 +20,7 @@ public class PlayerUIManager : MonoBehaviour
 
     [Header("玩家属性组件引用")]
     [Tooltip("玩家的BattleAttributes组件（统一管理器）")]
-    [SerializeField] private BattleAttributes battleAttributes;
+    [SerializeField] public BattleAttributes battleAttributes;
 
     // 内部字段
     private Health playerHealth;
@@ -29,29 +29,24 @@ public class PlayerUIManager : MonoBehaviour
 
     private void Awake()
     {
-        // 验证battleAttributes是否为null
+        // 只验证 battleAttributes 是否为 null
         if (battleAttributes == null)
         {
             Debug.LogError("[PlayerUIManager] 未设置玩家的BattleAttributes组件！");
             return;
         }
-
-        // 通过battleAttributes获取组件
-        playerHealth = battleAttributes.Health;
-        playerMana = battleAttributes.Mana;
-        playerStamina = battleAttributes.Stamina;
-
-        // 验证playerHealth是否为null
-        if (playerHealth == null)
-        {
-            Debug.LogError("[PlayerUIManager] BattleAttributes中未找到Health组件！");
-        }
     }
 
     private void Start()
     {
+        // 在 Start 中获取组件引用（确保 BattleAttributes.Awake 已执行）
+        playerHealth = battleAttributes.Health;
+        playerMana = battleAttributes.Mana;
+        playerStamina = battleAttributes.Stamina;
+
         if (playerHealth == null)
         {
+            Debug.LogError("[PlayerUIManager] BattleAttributes中未找到Health组件！");
             return;
         }
 

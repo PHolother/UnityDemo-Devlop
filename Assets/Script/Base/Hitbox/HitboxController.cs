@@ -161,14 +161,14 @@ namespace Script.Base.Hitbox
                 return;
             }
 
-            // 在攻击者根节点下查找名为"BattleAttribute"的子物体
-            Transform battleAttrTransform = attacker.transform.Find("BattleAttribute");
+            // 在攻击者根节点下查找名为"BattleAttributes"的子物体
+            Transform battleAttrTransform = attacker.transform.Find("BattleAttributes");
             
             if (battleAttrTransform == null)
             {
                 currentBattleAttribute = null;
                 currentDamageProvider = null;
-                Debug.LogError($"[HitboxController] 未在攻击者根节点 '{attacker.name}' 下找到 'BattleAttribute' 子物体！请确保预制体结构正确：Root/BattleAttribute", this);
+                Debug.LogError($"[HitboxController] 未在攻击者根节点 '{attacker.name}' 下找到 'BattleAttributes' 子物体！请确保预制体结构正确：Root/BattleAttributes", this);
                 return;
             }
 

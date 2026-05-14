@@ -77,10 +77,10 @@ namespace Script.Base.BattleAttribute
                 owner = transform.root.gameObject;
             }
 
-            // 获取组件引用（使用GetComponentInParent，因为组件可能在同一物体）
-            health = GetComponentInParent<Health>();
-            mana = GetComponentInParent<Mana>();
-            stamina = GetComponentInParent<Stamina>();
+            // 获取组件引用（所有组件都在同一物体上，使用GetComponent）
+            health = GetComponent<Health>();
+            mana = GetComponent<Mana>();
+            stamina = GetComponent<Stamina>();
 
             // Health是必须的
             if (health == null)

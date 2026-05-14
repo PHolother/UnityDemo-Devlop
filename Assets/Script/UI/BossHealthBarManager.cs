@@ -68,6 +68,13 @@ public class BossHealthBarManager : MonoBehaviour
 
         ShowBossHealthBar();
         isBattleStarted = true;
+        
+        // 设置 Slider 的 maxValue 为 BOSS 的最大血量
+        if (bossHealthSlider != null)
+        {
+            bossHealthSlider.maxValue = bossHealth.maxHealth;
+        }
+        
         UpdateHealthBarDisplay();
 
         Debug.Log("[BossHealthBarManager] BOSS血条已显示");
@@ -104,9 +111,8 @@ public class BossHealthBarManager : MonoBehaviour
             return;
         }
 
-        // 计算血量百分比
-        float healthPercent = (float)bossHealth.GetCurrentHealth() / bossHealth.maxHealth;
-        bossHealthSlider.value = healthPercent;
+        // 直接设置血条值为当前血量
+        bossHealthSlider.value = bossHealth.GetCurrentHealth();
 
         Debug.Log($"[BossHealthBarManager] BOSS血量变化: {bossHealth.GetCurrentHealth()}/{bossHealth.maxHealth}");
     }
