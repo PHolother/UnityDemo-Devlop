@@ -1,0 +1,164 @@
+# ============================================
+# Unity 项目 .gitignore
+# 策略：默认忽略所有文件，白名单保留开发产物
+# ============================================
+
+# ============================================
+# 第一步：忽略项目根目录下的所有文件
+# ============================================
+*
+
+# gitignore 自身必须入库，否则新 clone 的仓库没有忽略规则
+!/.gitignore
+
+# ============================================
+# 第二步：保留 Assets 目录入口
+# ============================================
+!/Assets/
+!/Assets.meta
+
+# ============================================
+# 第三步：忽略 Assets 下的所有内容（再用白名单逐个放行）
+# ============================================
+/Assets/*
+
+# ============================================
+# 第四步：白名单 — 保留开发中会被修改的目录
+#    每个目录包含两行：目录本身 + 目录下所有内容（含 .meta）
+# ============================================
+
+# 脚本
+!/Assets/Script/
+!/Assets/Script/**
+
+# 编辑器扩展工具（刀光调参面板等）
+!/Assets/Editor/
+!/Assets/Editor/**
+
+# 刀光调参持久化文件（保存/导入用）
+!/SlashTuning.json
+
+# TestMove（脚本 + InputActions）
+!/Assets/TestMove/
+!/Assets/TestMove/**
+
+# 场景文件
+!/Assets/Scenes/
+!/Assets/Scenes/**
+
+# 动画控制器
+!/Assets/Animation Controller/
+!/Assets/Animation Controller/**
+
+# 预制体
+!/Assets/Prefabs/
+!/Assets/Prefabs/**
+
+# URP 渲染管线设置
+!/Assets/Settings/
+!/Assets/Settings/**
+
+# Resources（运行时资源）
+!/Assets/Resources/
+!/Assets/Resources/**
+
+# 刀光 Wipe shadergraph 衍生资产（角向揭示：材质+预制体，逐文件白名单，美术包其余内容仍不入库）
+!/Assets/Artwork/
+!/Assets/Artwork/Slash Effect/
+!/Assets/Artwork/Slash Effect/Hovl Studio/
+!/Assets/Artwork/Slash Effect/Hovl Studio/HSFiles/
+!/Assets/Artwork/Slash Effect/Hovl Studio/HSFiles/Shaders/
+!/Assets/Artwork/Slash Effect/Hovl Studio/HSFiles/Shaders/Shader Graph/
+!/Assets/Artwork/Slash Effect/Hovl Studio/HSFiles/Shaders/Shader Graph/HS_SwordSlash_Wipe.shadergraph
+!/Assets/Artwork/Slash Effect/Hovl Studio/HSFiles/Shaders/Shader Graph/HS_SwordSlash_Wipe.shadergraph.meta
+!/Assets/Artwork/Slash Effect/Hovl Studio/HSFiles/Materials/
+!/Assets/Artwork/Slash Effect/Hovl Studio/HSFiles/Materials/SwordSlash7_Wipe.mat
+!/Assets/Artwork/Slash Effect/Hovl Studio/HSFiles/Materials/SwordSlash7_Wipe.mat.meta
+!/Assets/Artwork/Slash Effect/Hovl Studio/HSFiles/Materials/Smoke27_Wipe.mat
+!/Assets/Artwork/Slash Effect/Hovl Studio/HSFiles/Materials/Smoke27_Wipe.mat.meta
+!/Assets/Artwork/Slash Effect/Hovl Studio/Sword slash VFX/
+!/Assets/Artwork/Slash Effect/Hovl Studio/Sword slash VFX/Prefabs/
+!/Assets/Artwork/Slash Effect/Hovl Studio/Sword slash VFX/Prefabs/Sword Slash 11W.prefab
+!/Assets/Artwork/Slash Effect/Hovl Studio/Sword slash VFX/Prefabs/Sword Slash 11W.prefab.meta
+
+# 贴图
+!/Assets/Textures/
+!/Assets/Textures/**
+
+# 选定的动画剪辑：大体积 .anim 不入库，结构由根目录 SelectedAnimationText 占位记录（空 .txt，无 .meta）
+!/SelectedAnimationText/
+!/SelectedAnimationText/**
+
+# ============================================
+# 第五步：保留 Packages 依赖清单
+# ============================================
+!/Packages/
+!/Packages/manifest.json
+!/Packages/manifest.json.meta
+!/Packages/packages-lock.json
+!/Packages/packages-lock.json.meta
+
+# ============================================
+# 第六步：保留 ProjectSettings（标签/层/输入/质量等）
+# ============================================
+!/ProjectSettings/
+!/ProjectSettings/**
+
+# ============================================
+# 第七步：忽略 DevLog.md（不再跟踪，避免回档丢失）
+DevLog.md
+# ============================================
+
+# ============================================
+# 第八步：保留 Config 配表目录（Excel/CSV 数据驱动配表，归入 git 管理）
+# ============================================
+!/Config/
+!/Config/**
+
+# ============================================
+# 第九步：保留 Versions 版本归档目录（按时间命名的快照文件夹）
+# ============================================
+!/Versions/
+!/Versions/**
+
+# 防止在制作新快照时把旧版本目录嵌套复制进去
+/Versions/*/*/Versions/
+/Versions/*/*/Versions/**
+
+# ============================================
+# 忽略 Unity 缓存文件夹
+# ============================================
+/Library/
+/Temp/
+/Obj/
+/Build/
+/Builds/
+/Logs/
+/UserSettings/
+/MemoryCaptures/
+/Recovery/
+
+# ============================================
+# 忽略 IDE 和项目文件
+# ============================================
+/.vs/
+/.idea/
+*.sln
+*.suo
+*.csproj
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*DotSettings.user
+
+# ============================================
+# 忽略操作系统文件
+# ============================================
+.DS_Store
+Thumbs.db

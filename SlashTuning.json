@@ -1,0 +1,449 @@
+{
+    "slots": [
+        {
+            "key": 0,
+            "spawnDelay": 0.0,
+            "duration": 0.32,
+            "phaseDeg": 0.0,
+            "positionOffset": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotationOffset": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "flipSweep": false,
+            "prefabPath": "Assets/Artwork/Slash Effect/Hovl Studio/Sword slash VFX/Prefabs/Sword Slash 11W.prefab",
+            "hasBakedPose": true,
+            "bakedCenter": {
+                "x": -0.05295035243034363,
+                "y": 1.0839530229568482,
+                "z": 0.1896575689315796
+            },
+            "bakedNormal": {
+                "x": 0.7529891133308411,
+                "y": -0.6579917669296265,
+                "z": -0.007356880698353052
+            },
+            "bakedStart": {
+                "x": 0.25382715463638308,
+                "y": 1.4147942066192628,
+                "z": -0.939570426940918
+            },
+            "bakedRadius": 1.2889536619186402,
+            "bakedSweepDeg": 129.10606384277345,
+            "arcFrac": 0.0,
+            "smokeBoost": 1.4,
+            "revealSeedFrac": 0.3,
+            "revealCurve": [
+                0.0,
+                0.07798101752996445,
+                0.15872763097286225,
+                0.24370963871479035,
+                0.33035391569137576,
+                0.42170724272727969,
+                0.5206661224365234,
+                0.6279360055923462,
+                0.742709755897522,
+                0.8646280169487,
+                1.0
+            ],
+            "sweepHeadNorm": 0.05027694255113602,
+            "sweepStartNorm": 0.14647795259952546,
+            "sweepEndNorm": 0.18361027538776399,
+            "sweepSpanNorm": 0.037132326513528827
+        },
+        {
+            "key": 1,
+            "spawnDelay": 0.0,
+            "duration": 0.15000000596046449,
+            "phaseDeg": 0.0,
+            "positionOffset": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotationOffset": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "flipSweep": false,
+            "prefabPath": "Assets/Artwork/Slash Effect/Hovl Studio/Sword slash VFX/Prefabs/Sword Slash 11W.prefab",
+            "hasBakedPose": false,
+            "bakedCenter": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "bakedNormal": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "bakedStart": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "bakedRadius": 0.0,
+            "bakedSweepDeg": 0.0,
+            "arcFrac": 0.0,
+            "revealCurve": [],
+            "sweepHeadNorm": -1.0,
+            "sweepStartNorm": -1.0,
+            "sweepEndNorm": -1.0,
+            "sweepSpanNorm": -1.0
+        },
+        {
+            "key": 2,
+            "spawnDelay": 0.05,
+            "duration": 0.33541634678840639,
+            "phaseDeg": 0.0,
+            "positionOffset": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotationOffset": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "flipSweep": false,
+            "prefabPath": "Assets/Artwork/Slash Effect/Hovl Studio/Sword slash VFX/Prefabs/Sword Slash 11W.prefab",
+            "hasBakedPose": true,
+            "bakedCenter": {
+                "x": 0.30109986662864687,
+                "y": 1.2025374174118043,
+                "z": 0.2884668707847595
+            },
+            "bakedNormal": {
+                "x": -0.062463171780109408,
+                "y": 0.9975923299789429,
+                "z": -0.030133023858070375
+            },
+            "bakedStart": {
+                "x": -0.12059579789638519,
+                "y": 1.0406367778778077,
+                "z": -0.5937910079956055
+            },
+            "bakedRadius": 1.276314616203308,
+            "bakedSweepDeg": 113.50918579101563,
+            "arcFrac": 0.0,
+            "revealCurve": [
+                0.0,
+                0.09249367564916611,
+                0.18814553320407868,
+                0.2825428247451782,
+                0.3691251873970032,
+                0.4549769163131714,
+                0.5439169406890869,
+                0.6387799382209778,
+                0.7440099716186523,
+                0.8630514740943909,
+                1.0
+            ],
+            "sweepHeadNorm": 0.18540120124816895,
+            "sweepStartNorm": 0.11485054343938828,
+            "sweepEndNorm": 0.28540119528770449,
+            "sweepSpanNorm": 0.1705506592988968
+        },
+        {
+            "key": 3,
+            "spawnDelay": 0.0,
+            "duration": 0.15000000596046449,
+            "phaseDeg": 0.0,
+            "positionOffset": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotationOffset": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "flipSweep": false,
+            "prefabPath": "Assets/Artwork/Slash Effect/Hovl Studio/Sword slash VFX/Prefabs/Sword Slash 11W.prefab",
+            "hasBakedPose": false,
+            "bakedCenter": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "bakedNormal": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "bakedStart": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "bakedRadius": 0.0,
+            "bakedSweepDeg": 0.0,
+            "arcFrac": 0.0,
+            "revealCurve": [],
+            "sweepHeadNorm": -1.0,
+            "sweepStartNorm": -1.0,
+            "sweepEndNorm": -1.0,
+            "sweepSpanNorm": -1.0
+        },
+        {
+            "key": 4,
+            "spawnDelay": 0.0,
+            "duration": 0.41666680574417117,
+            "phaseDeg": 0.0,
+            "positionOffset": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotationOffset": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "flipSweep": false,
+            "prefabPath": "Assets/Artwork/Slash Effect/Hovl Studio/Sword slash VFX/Prefabs/Sword Slash 11W.prefab",
+            "hasBakedPose": true,
+            "bakedCenter": {
+                "x": 0.286382257938385,
+                "y": 1.2580041885375977,
+                "z": 0.18595725297927857
+            },
+            "bakedNormal": {
+                "x": -0.7221646308898926,
+                "y": -0.6859691739082336,
+                "z": -0.08902011811733246
+            },
+            "bakedStart": {
+                "x": 0.6392818689346314,
+                "y": 0.7778743505477905,
+                "z": -1.001375436782837
+            },
+            "bakedRadius": 1.3221824169158936,
+            "bakedSweepDeg": 128.10255432128907,
+            "arcFrac": 0.0,
+            "revealCurve": [
+                0.0,
+                0.055434148758649829,
+                0.11926478147506714,
+                0.1905740350484848,
+                0.2677498161792755,
+                0.3534996211528778,
+                0.4610643684864044,
+                0.584502637386322,
+                0.7209322452545166,
+                0.8612866997718811,
+                1.0
+            ],
+            "sweepHeadNorm": 0.11975238472223282,
+            "sweepStartNorm": 0.09713072329759598,
+            "sweepEndNorm": 0.1368027627468109,
+            "sweepSpanNorm": 0.03967203199863434
+        },
+        {
+            "key": 5,
+            "spawnDelay": -0.03162806108593941,
+            "duration": 0.25000011920928957,
+            "phaseDeg": 0.0,
+            "positionOffset": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotationOffset": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "flipSweep": false,
+            "prefabPath": "Assets/Artwork/Slash Effect/Hovl Studio/Sword slash VFX/Prefabs/Sword Slash 11W.prefab",
+            "hasBakedPose": true,
+            "bakedCenter": {
+                "x": 0.17405714094638825,
+                "y": 1.106520175933838,
+                "z": 0.2510712444782257
+            },
+            "bakedNormal": {
+                "x": -0.6651049256324768,
+                "y": 0.7466139793395996,
+                "z": -0.01425321213901043
+            },
+            "bakedStart": {
+                "x": -0.5740889310836792,
+                "y": 0.7339184284210205,
+                "z": -0.7270545959472656
+            },
+            "bakedRadius": 1.3288031816482545,
+            "bakedSweepDeg": 209.98289489746095,
+            "arcFrac": 0.0,
+            "revealCurve": [
+                0.0,
+                0.06303868442773819,
+                0.1419011503458023,
+                0.24277161061763764,
+                0.3653202950954437,
+                0.4932413101196289,
+                0.6274609565734863,
+                0.74538254737854,
+                0.8495744466781616,
+                0.9309654235839844,
+                1.0
+            ],
+            "sweepHeadNorm": 0.18406595289707185,
+            "sweepStartNorm": 0.19671717286109925,
+            "sweepEndNorm": 0.28406596183776858,
+            "sweepSpanNorm": 0.08734878152608872
+        },
+        {
+            "key": 6,
+            "spawnDelay": 0.26,
+            "duration": 0.477,
+            "phaseDeg": 0.0,
+            "positionOffset": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotationOffset": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "flipSweep": false,
+            "prefabPath": "Assets/Artwork/Slash Effect/Hovl Studio/Sword slash VFX/Prefabs/Sword Slash 11W.prefab",
+            "hasBakedPose": true,
+            "bakedCenter": {
+                "x": -0.13991545140743257,
+                "y": 1.1309014558792115,
+                "z": -0.04353869706392288
+            },
+            "bakedNormal": {
+                "x": -0.046410661190748218,
+                "y": 0.9643635153770447,
+                "z": -0.26047849655151369
+            },
+            "bakedStart": {
+                "x": -0.23740406334400178,
+                "y": 1.468616008758545,
+                "z": 0.5909051895141602
+            },
+            "bakedRadius": 0.8017792701721191,
+            "bakedSweepDeg": 164.97952270507813,
+            "arcFrac": 0.0,
+            "smokeBoost": 1.4,
+            "revealSeedFrac": 0.15,
+            "revealCurve": [
+                0.0,
+                0.10181386023759842,
+                0.20903454720973969,
+                0.31554484367370608,
+                0.4133208692073822,
+                0.5042622685432434,
+                0.5933703780174255,
+                0.6845452785491943,
+                0.7810444831848145,
+                0.8854900002479553,
+                1.0
+            ],
+            "sweepHeadNorm": 0.11233779788017273,
+            "sweepStartNorm": 0.12806762754917146,
+            "sweepEndNorm": 0.17537884414196015,
+            "sweepSpanNorm": 0.0473112128674984
+        },
+        {
+            "key": 7,
+            "spawnDelay": 0.0,
+            "duration": 0.15000000596046449,
+            "phaseDeg": 0.0,
+            "positionOffset": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotationOffset": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "flipSweep": false,
+            "prefabPath": "Assets/Artwork/Slash Effect/Hovl Studio/Sword slash VFX/Prefabs/Sword Slash 11W.prefab",
+            "hasBakedPose": false,
+            "bakedCenter": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "bakedNormal": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "bakedStart": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "bakedRadius": 0.0,
+            "bakedSweepDeg": 0.0,
+            "arcFrac": 0.0,
+            "revealCurve": [],
+            "sweepHeadNorm": -1.0,
+            "sweepStartNorm": -1.0,
+            "sweepEndNorm": -1.0,
+            "sweepSpanNorm": -1.0
+        }
+    ],
+    "centerFollowRate": 35.0,
+    "planeFollowRate": 14.0,
+    "maxTrackRadius": 6.0,
+    "attackSlowMo": 0.30000001192092898,
+    "autoSlashMark": 1.0
+}
